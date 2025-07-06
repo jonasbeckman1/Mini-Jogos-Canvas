@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOGOS DO ARUANA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <button class="arrow left" onclick="mudarImagem(-1)">&#10094;</button>
+
+    <a id="linkJogo" href="https://aruanagame01.my.canva.site/" target="_blank">
+      <img id="imagemJogo" src="imagem1.png" alt="Jogo 1" />
+    </a>
+
+    <button class="arrow right" onclick="mudarImagem(1)">&#10095;</button>
+  </div>
+
+  <script>
+    const jogos = [
+      {
+        imagem: "imagem1.png",
+        link: "https://aruanagame01.my.canva.site/"
+      },
+      {
+        imagem: "imagem2.png",
+        link: "https://aruanagame2.my.canva.site/"
+      },
+      {
+        imagem: "imagem3.png",
+        link: "https://aruanagame3.my.canva.site/"
+      }
+    ];
+
+    let indiceAtual = 0;
+
+    function mudarImagem(direcao) {
+      indiceAtual = (indiceAtual + direcao + jogos.length) % jogos.length;
+      document.getElementById("imagemJogo").src = jogos[indiceAtual].imagem;
+      document.getElementById("imagemJogo").alt = `Jogo ${indiceAtual + 1}`;
+      document.getElementById("linkJogo").href = jogos[indiceAtual].link;
+    }
+  </script>
+</body>
+</html>
